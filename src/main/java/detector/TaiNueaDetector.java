@@ -20,7 +20,6 @@ public class TaiNueaDetector {
         for (int i = 0; i < check_counts; i ++) {
             // Check if the character is Tai Nuea code
             // Which is between 1950 & 1974
-            System.out.println("Character : " + (int)characters[i]);
             if ((int)characters[i] >= 6480 && (int) characters[i] <=6516) {
                 return true;
             }

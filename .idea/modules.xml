@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FirstJavaSwing.iml" filepath="$PROJECT_DIR$/FirstJavaSwing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaiNueaConverter.iml" filepath="$PROJECT_DIR$/TaiNueaConverter.iml" />
     </modules>
   </component>
 </project>

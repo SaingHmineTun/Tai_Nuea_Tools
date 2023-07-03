@@ -44,8 +44,8 @@ public class MaoPopupConverter extends JDialog implements ActionListener {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setResizable(false);
         try {
-            shnFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/resources/fonts/shn_pyidaungsu.ttf")).deriveFont(14f);
-            tddFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/resources/fonts/tdd_microsoft.ttf")).deriveFont(14f);
+            shnFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/fonts/myanmar_taung_thu.ttf")).deriveFont(14f);
+            tddFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/fonts/myanmar_taung_thu.ttf")).deriveFont(14f);
 
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();

@@ -1,5 +1,4 @@
 import controller.MaoConverterController;
-import view.MaoConverter;
 
 import java.lang.reflect.InvocationTargetException;
 

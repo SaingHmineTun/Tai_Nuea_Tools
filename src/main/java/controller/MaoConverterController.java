@@ -18,8 +18,9 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 
 public class MaoConverterController implements ActionListener, ChangeListener {
 
@@ -34,7 +35,7 @@ public class MaoConverterController implements ActionListener, ChangeListener {
     private ClipboardTextListener clipboardListener;
     private JMenuItem fileNameConverter;
 
-    public MaoConverterController() throws InvocationTargetException, InterruptedException {
+    public MaoConverterController() {
         initializeComponents();
         initializeMenubar();
         initializeAppIcons();
@@ -54,10 +55,10 @@ public class MaoConverterController implements ActionListener, ChangeListener {
         exit.addActionListener(listener);
         fileNameConverter.addActionListener(listener);
         enablePopup.addItemListener(e -> {
-            if (e.getStateChange() == 1) {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
                 clipboardListener = new ClipboardTextListener(maoConverter);
                 new Thread(clipboardListener).start();
-            } else if (e.getStateChange() == 2) {
+            } else if (e.getStateChange() == ItemEvent.DESELECTED) {
                 clipboardListener.terminate();
             }
         });
@@ -85,7 +86,7 @@ public class MaoConverterController implements ActionListener, ChangeListener {
         enablePopup = new JCheckBoxMenuItem("Enable Popup Converter");
         enablePopup.setToolTipText("Enable Dialog Convert when copy text!");
         fileNameConverter = new JMenuItem("File Name Converter");
-        fileNameConverter.setToolTipText("Convert file name written in Zawgyi to Unicode");
+        fileNameConverter.setToolTipText("Convert file name written in Tai Nuea to Shan");
 
         tool.add(fileNameConverter);
         tool.add(enablePopup);
@@ -99,15 +100,12 @@ public class MaoConverterController implements ActionListener, ChangeListener {
 
     private void initializeAppIcons() {
 
-//        ArrayList<Image> icons = new ArrayList<>();
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_16.png")).getImage());
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_24.png")).getImage());
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_32.png")).getImage());
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_48.png")).getImage());
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_128.png")).getImage());
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_256.png")).getImage());
-//        icons.add(new ImageIcon(getClass().getResource("/resources/icons/tmkfontconverter2forpc_512.png")).getImage());
-//        maoConverter.setIconImages(icons);
+        ArrayList<Image> icons = new ArrayList<>();
+        icons.add(new ImageIcon(getClass().getResource("/icons/logo_512.png")).getImage());
+        icons.add(new ImageIcon(getClass().getResource("/icons/logo_256.png")).getImage());
+        icons.add(new ImageIcon(getClass().getResource("/icons/logo_128.png")).getImage());
+        icons.add(new ImageIcon(getClass().getResource("/icons/logo_64.png")).getImage());
+        maoConverter.setIconImages(icons);
 
     }
 
@@ -127,8 +125,8 @@ public class MaoConverterController implements ActionListener, ChangeListener {
     private void initializeComponents() {
         maoConverter = new MaoConverter();
         try {
-            tddFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/resources/fonts/tdd_microsoft.ttf")).deriveFont(14f);
-            shnFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/resources/fonts/shn_pyidaungsu.ttf")).deriveFont(14f);
+            tddFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/fonts/myanmar_taung_thu.ttf")).deriveFont(14f);
+            shnFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/fonts/myanmar_taung_thu.ttf")).deriveFont(14f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(tddFont);
             ge.registerFont(shnFont);

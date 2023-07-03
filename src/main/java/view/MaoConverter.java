@@ -64,7 +64,7 @@ public class MaoConverter extends JFrame {
         setContentPane(mainPanel);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Tai Nuea Tools");
+        setTitle("Tai Nuea Converter");
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |

@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="FirstJavaSwing:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/FirstJavaSwing_jar</output-path>
-    <root id="archive" name="FirstJavaSwing.jar">
-      <element id="module-output" name="FirstJavaSwing" />
-      <element id="extracted-dir" path="$USER_HOME$/Desktop/json_20220320.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
